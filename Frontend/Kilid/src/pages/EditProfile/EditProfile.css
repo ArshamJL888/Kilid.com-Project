@@ -1,0 +1,50 @@
+.edit-field {
+    margin: 2rem auto;
+    width: 100%;
+    height: 100px;
+}
+
+.edit-text-boxes {
+    width: 85%;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-top: 3rem solid rgb(82, 0, 41);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.edit-page {
+    width: 100%;
+    position: absolute;
+    top: 3.8rem;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.edit-submit {
+    margin: 1rem auto;
+    text-align: center;
+    width: 20%;
+}
+
+.edit-submit-btn {
+    text-align: center;
+    background-color: rgb(82, 0, 41);
+    padding: 0.75rem;
+    width: 120px;
+    margin: 0 auto;
+    border-radius: 0.5rem   ;
+}
+
+.edit-submit-btn:hover{
+    background-color: rgb(61, 0, 31);
+}
+
+
+.field-text-box {
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-left-radius: 0.5rem !important;
+  }

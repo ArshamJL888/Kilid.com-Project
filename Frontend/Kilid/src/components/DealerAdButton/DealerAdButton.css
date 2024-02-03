@@ -1,0 +1,15 @@
+.real-state-register-ad {
+    padding: 10px 25px;
+    border: 1px solid gray;
+    background-color: white;
+    color: #616161;
+    font-size: 15px;
+    font-weight: 350px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.real-state-register-ad:hover {
+    background-color: #F5F5F5;
+    transition: 0.4s;
+}

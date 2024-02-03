@@ -1,0 +1,65 @@
+* {
+    font-family: Vazirmatn, Arial, Tahoma, serif;
+}
+
+.new-add-conatainer {
+    width: 95%;
+    margin: 1rem auto;
+    min-height: 30rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-top: 3rem solid rgb(82, 0, 41);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+.field-radio {
+    margin: 1rem 2rem;
+}
+
+.room-num-opt {
+    color: #FFFFFF;
+    background-color: rgb(82, 0, 41);
+    border-bottom: 1px solid gray;
+}
+
+.room-option-bar{
+    margin-right: 2rem;
+}
+
+.facility-header-create{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.facilities-creation{
+    padding: 2rem;
+}
+
+.details-creation{
+    padding: 2rem;
+}
+
+.details-row{
+    margin-bottom: 5rem;
+}
+
+.ad-creation-submit {
+    margin: 1rem auto;
+    text-align: center;
+    width: 20%;
+}
+
+.ad-creation-submit-btn {
+    text-align: center;
+    background-color: rgb(82, 0, 41);
+    padding: 0.75rem;
+    width: 2000px;
+    margin: 0 auto;
+    border-radius: 0.5rem   ;
+}
+
+.ad-creation-submit-btn:hover{
+    background-color: rgb(61, 0, 31);
+}
+

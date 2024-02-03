@@ -1,0 +1,81 @@
+.main-page-imagr-card {
+    min-width: 100%;
+    /* margin: 7rem auto; */
+    height: 32rem;
+    border-radius: 0.8rem;
+    background-position: center;
+    background-image: url("../../../public/images/kilid-home.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    filter: drop-shadow(10px 10px 4px #E57373);
+    box-shadow: inset -50px 200px 600px -80px #304FFE;
+}
+
+.main-image-center-content {
+    position: relative;
+    top: 6rem;
+    margin: 0 auto;
+    min-width: 70%;
+    min-height: 40%;
+    z-index: 999;
+}
+
+.main-image-header-text {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.main-image-sub-header-text {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.main-page-search-box {
+    width: 70%;
+    min-height: 14rem;
+    margin: 0.5rem auto;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+}
+
+.search-box-title-text {
+    color: #424242;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.search-box-input {
+    direction: rtl;
+    text-align: right;
+
+}
+
+.main-image-search-btn {
+    min-width: 150px;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: rgb(82 0 41);
+    margin: 0 auto !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+}
+
+.search-btn-symbol{
+    margin-right: 5px;
+    font-weight: 600;
+}

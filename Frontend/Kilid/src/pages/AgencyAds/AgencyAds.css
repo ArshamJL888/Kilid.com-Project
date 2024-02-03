@@ -1,0 +1,16 @@
+
+
+* {
+    font-family: Vazirmatn, Arial, Tahoma, serif;
+}
+
+.agency-ads-conatainer {
+    width: 95%;
+    margin: 1rem auto;
+    min-height: 30rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-top: 3rem solid rgb(82, 0, 41);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
