@@ -8,7 +8,8 @@ import CreateAdValodation from './CreateAdValidation';
 import PendingCover from '../../components/PendingCover/PendingCover';
 import StatusAlert from '../../components/StatusAlert/StatusAlert';
 import { Button, Card, Col, Dropdown, InputGroup, Row } from "react-bootstrap";
-import { fetchGETData, fetchData, setInLocalStorage, } from "../../utils.js"
+import { fetchGETData, fetchData, setInLocalStorage, getFromLocalStorage, } from "../../utils.js"
+import { v4 as uuidv4 } from 'uuid';
 
 function CreateAd() {
 
@@ -81,6 +82,13 @@ function CreateAd() {
         }, 5000)
     }
 
+    const generateUniqueId = () => {
+        const uuid = uuidv4();
+        const numericId = uuid.replace(/\D/g, '').slice(0, 7);
+
+        return numericId;
+    };
+
 
     const onSubmit = async (inputData) => {
         var obj = {
@@ -111,6 +119,78 @@ function CreateAd() {
             mall,
         }
         console.log(obj);
+
+        let costObject = {};
+        if (inputData.type === "1") {
+            costObject = {
+                "sellCost": inputData.sellCost
+            }
+        } else if (inputData.type == "2") {
+            costObject = { "mortgageCost": inputData.mortgage }
+        } else {
+            costObject = {
+                "preCost": inputData.preCost,
+                "monthlyRent": inputData.rentCost
+            }
+        }
+
+        let uniquePropertyId = generateUniqueId();
+        var requestObject = {
+            "property": {
+                "propertyId": uniquePropertyId,
+                "title": inputData.title,
+                "city": inputData.city,
+                "zone": inputData.zone,
+                "area": parseInt(inputData.area, 10),
+                "usage": inputData.usage,
+                "numberOfRoom": inputData.numOfRooms,
+                "age": parseInt(inputData.age, 10),
+                "agencyID": getFromLocalStorage("agencyObject").id,
+                "description": inputData.description,
+                ...costObject
+            },
+            "facility": {
+                "propertyId": uniquePropertyId,
+                "parking": parking ? "1" : "0",
+                "lobby": lobby ? "1" : "0",
+                "elevator": elevator ? "1" : "0",
+                "pool": pool ? "1" : "0",
+                "sauna": sauna ? "1" : "0",
+                "gym": gym ? "1" : "0",
+                "buildingGuard": buildingGuard ? "1" : "0",
+                "balcony": balcony ? "1" : "0",
+                "rooftopGarden": rooftopGarden ? "1" : "0",
+                "airCondition": airCondition ? "1" : "0",
+                "conferenceHall": conferenceHall ? "1" : "0",
+                "jacuzzi": jacuzzi ? "1" : "0",
+                "centralAntenna": centralAntenna ? "1" : "0",
+                "remoteControlledDoor": remoteControlledDoor ? "1" : "0"
+            },
+            "condition": {
+                "propertyId": uniquePropertyId,
+                "cooperative": cooperative ? "1" : null,
+                "barter": barter ? "1" : null,
+                "convertible": convertible ? "1" : null,
+                "presale": presale ? "1" : null,
+                "buildingLocation": buildingLocation ? "1" : null,
+                "loan": loan ? "1" : null,
+                "newlyBuilt": newlyBuilt ? "1" : null,
+                "equity": equity ? "1" : null,
+                "shoppingCenter": shoppingCenter ? "1" : null,
+                "mall": mall ? "1" : null
+            },
+            "picture": [
+                {
+                    "pictureKey": {
+                        "propertyID": uniquePropertyId,
+                        "pictureID": uniquePropertyId
+                    },
+                    "picture": inputData.photo,
+                    "primary": true
+                }
+            ]
+        }
+
     }
 
     const changeLogging = () => {
@@ -146,7 +226,7 @@ function CreateAd() {
                 <Form onSubmit={handleSubmit(onSubmit)}>
 
                     <Row>
-                        <Col xs={12}>
+                        <Col xs={7}>
                             <InputGroup className="mb-3 edit-field">
                                 <Form.Label column xs={6} xl={4}>
                                     {t("Title")}
@@ -162,6 +242,27 @@ function CreateAd() {
                                     />
                                     <Form.Control.Feedback type="invalid">
                                         {errors.title && errors.title.message}
+                                    </Form.Control.Feedback>
+                                </InputGroup>
+                            </InputGroup>
+                        </Col>
+
+                        <Col xs={3}>
+                            <InputGroup className="mb-3 edit-field">
+                                <Form.Label column xs={6} xl={4}>
+                                    {t("Age")}
+                                </Form.Label>
+                                <InputGroup className="mb-3 edit-input">
+                                    <Form.Control
+                                        className='field-text-box'
+                                        type="text"
+                                        placeholder={t("Age")}
+                                        aria-label={t("Age")}
+                                        {...register("age")}
+                                        isInvalid={errors.age}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.age && errors.age.message}
                                     </Form.Control.Feedback>
                                 </InputGroup>
                             </InputGroup>
