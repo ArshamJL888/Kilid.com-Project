@@ -24,7 +24,7 @@ function RequestCard({ requestInfo = {} }) {
         <Card className="center-block custom-card">
           <Card.Body>
             <div className="mb-5 d-flex flex-row justify-content-center">
-              <img className="request-img me-4" src={requestInfo.picture[0].picture} />
+              <img className="request-img me-4" src={requestInfo.picture[0] ? requestInfo.picture[0].picture : "https://cdn.kilid.com/photos/large/listing_0d86b3a0-a418-42f1-a204-7ddedae338ad_hrz.jpg"} />
             </div>
             <div className="request-title">
               {requestInfo.property.title}

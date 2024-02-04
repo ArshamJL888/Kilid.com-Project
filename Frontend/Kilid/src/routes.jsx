@@ -7,6 +7,7 @@ import Error404Page from "./pages/404Page/Error404Page.jsx";
 import PropertyPage from "./pages/PropertyPage/PropertyPage.jsx";
 import CreateAd from "./pages/CreateAd/CreateAd.jsx";
 import AgencyAds from "./pages/AgencyAds/AgencyAds.jsx";
+import RegisterAgency from "./pages/RegisterAgency/RegisterAgency.jsx";
 
 const routes = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
             {
                 path: "/my-ads-agency",
                 element: <AgencyAds />
+            },
+            {
+                path: "/add-new-agency",
+                element: <RegisterAgency />
             },
             {
                 path: "/*",

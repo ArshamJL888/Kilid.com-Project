@@ -132,7 +132,7 @@ export default function PropertyPage() {
             {showError && <StatusAlert errorBody={errorText} colorType="danger" />}
             <div className="property-details-card">
                 <div className="property-image-detail">
-                    <img className='property-details-card-image' src={propertyInfo.picture[0].picture} />
+                    <img className='property-details-card-image' src={propertyInfo.picture[0]? propertyInfo.picture[0].picture : "https://cdn.kilid.com/photos/large/listing_0d86b3a0-a418-42f1-a204-7ddedae338ad_hrz.jpg"} />
                 </div>
 
                 <div className="property-detail-content">

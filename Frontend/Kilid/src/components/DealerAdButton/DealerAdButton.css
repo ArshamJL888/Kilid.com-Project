@@ -7,9 +7,12 @@
     font-weight: 350px;
     border-radius: 10px;
     margin: 10px;
+    text-decoration: none;
 }
 
 .real-state-register-ad:hover {
     background-color: #F5F5F5;
+    text-decoration: none;
+    color: #616161;
     transition: 0.4s;
 }

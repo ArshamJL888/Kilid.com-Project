@@ -150,7 +150,7 @@ function CreateAd() {
                 ...costObject
             },
             "facility": {
-                "propertyId": uniquePropertyId,
+                "propertyId": null,
                 "parking": parking ? "1" : "0",
                 "lobby": lobby ? "1" : "0",
                 "elevator": elevator ? "1" : "0",
@@ -167,7 +167,7 @@ function CreateAd() {
                 "remoteControlledDoor": remoteControlledDoor ? "1" : "0"
             },
             "condition": {
-                "propertyId": uniquePropertyId,
+                "propertyId": null,
                 "cooperative": cooperative ? "1" : null,
                 "barter": barter ? "1" : null,
                 "convertible": convertible ? "1" : null,
@@ -182,8 +182,8 @@ function CreateAd() {
             "picture": [
                 {
                     "pictureKey": {
-                        "propertyID": uniquePropertyId,
-                        "pictureID": uniquePropertyId
+                        "propertyID": null,
+                        "pictureID": null
                     },
                     "picture": inputData.photo,
                     "primary": true
@@ -191,6 +191,24 @@ function CreateAd() {
             ]
         }
 
+        try {
+            let resultData = await fetchData("http://127.0.0.1:8080/api/property/add", "POST", requestObject);
+            console.log(resultData);
+            if (resultData !== null || resultData != undefined || resultData.property != undefined) {
+
+                successHandler(`آگهی با موفقیت ثبت شد : کد آگهی: ${resultData.property.propertyId + " "}`),
+                    navigate("/", {replace: true})
+            } else {
+                errorHandler("در ارتباط با سرور مشکلی پیش آمده است.")
+            }
+        } catch (err) {
+            console.log(err);
+            setErrorText("در ارتباط با سرور مشکلی پیش آمده است.")
+            setShowError(true)
+            setTimeout(() => {  
+                setShowError(false)
+            }, 5000)
+        }
     }
 
     const changeLogging = () => {
