@@ -145,5 +145,14 @@
   "Repeat Password*": "*تکرار رمز عبور",
   "Register": "ثبت نام",
   "Repeat Password is not match to Password": "تکرار رمز عبور با رمز عبور برابر نیست!",
-  "Agency Phone": "شماره آژانس"
+  "Agency Phone": "شماره آژانس",
+  "Search Parameter Cannot be empty": "پارامتر سرچ نمیتواند خالی باشد",
+  "Search Results": "نتایج جستجو ها",
+  "No Ad Found": "آگهی یافت نشد!",
+  "Agency Information": "اطلاعات آژانس",
+  "Agency Code": "کد آژانس",
+  "Agency City": "شهر محل فعالیت",
+  "Manager Name": "نام مدیر",
+  "Manager Family": "نام خانوادگی مدیر",
+  "Manager Phone": "شماره مدیر"
 }

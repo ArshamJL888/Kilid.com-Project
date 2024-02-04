@@ -8,6 +8,7 @@ import PropertyPage from "./pages/PropertyPage/PropertyPage.jsx";
 import CreateAd from "./pages/CreateAd/CreateAd.jsx";
 import AgencyAds from "./pages/AgencyAds/AgencyAds.jsx";
 import RegisterAgency from "./pages/RegisterAgency/RegisterAgency.jsx";
+import SearchProperties from "./pages/SearchProperties/SearchProperties.jsx";
 
 const routes = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
             {
                 path: "/add-new-agency",
                 element: <RegisterAgency />
+            },
+            {
+                path: "search-properties/:searchParam",
+                element: <SearchProperties />
             },
             {
                 path: "/*",

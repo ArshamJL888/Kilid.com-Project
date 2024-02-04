@@ -166,3 +166,34 @@
     align-items: center;
     align-content: center;
 }
+
+.agency-information-content {
+    padding: 1rem;
+    margin: 1.5rem;
+}
+
+.agency-title-name {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.agency-field-row {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.agency-field-key {
+    font-size: 20px;
+    font-weight: 550;
+    margin-left: 1rem;
+}
+
+.agency-field-value {
+    font-size: 16px;
+    font-weight: 550;
+    color: #616161;
+}

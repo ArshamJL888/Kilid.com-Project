@@ -96,13 +96,15 @@ export default function PropertyPage() {
     }
 
     useEffect(() => {
-        console.log(propertyInfo);
         let resultData;
+        let agencyId;
         async function getproperty() {
             try {
                 resultData = await fetchGETData(`http://127.0.0.1:8080/api/property/show/${propertyId}`);
                 if (resultData !== null) {
                     setPropertyInfo(resultData)
+                    agencyId = resultData.property.agencyID;
+                    getAgency();
                     console.log(resultData)
                 } else {
                     throw resultData
@@ -115,6 +117,22 @@ export default function PropertyPage() {
 
         }
 
+        async function getAgency() {
+            try {
+                let agencyData = await fetchGETData(`http://127.0.0.1:8080/api/agency/show/${agencyId}`);
+                if (agencyData !== null) {
+                    setAgency(agencyData)
+                    console.log(agencyData)
+                } else {
+                    throw agencyData
+                }
+            } catch (errData) {
+                console.log(errData)
+                errorHandler("در ارتباط با سرور مشکلی پیش آمده است.")
+                // navigate("/", { replace: true });
+            }
+        }
+
         getproperty();
         setTimeout(() => {
             setIsPending(false);
@@ -125,14 +143,16 @@ export default function PropertyPage() {
 
 
 
+
+
+
     return (
         <>
-            {console.log(propertyInfo)}
             <PendingCover pending={isPending} />
             {showError && <StatusAlert errorBody={errorText} colorType="danger" />}
             <div className="property-details-card">
                 <div className="property-image-detail">
-                    <img className='property-details-card-image' src={propertyInfo.picture[0]? propertyInfo.picture[0].picture : "https://cdn.kilid.com/photos/large/listing_0d86b3a0-a418-42f1-a204-7ddedae338ad_hrz.jpg"} />
+                    <img className='property-details-card-image' src={propertyInfo.picture[0] ? propertyInfo.picture[0].picture : "https://cdn.kilid.com/photos/large/listing_0d86b3a0-a418-42f1-a204-7ddedae338ad_hrz.jpg"} />
                 </div>
 
                 <div className="property-detail-content">
@@ -188,7 +208,6 @@ export default function PropertyPage() {
                         <div className="property-facilities-details-content">
                             {
                                 Object.keys(propertyInfo.facility).map((key) => {
-                                    console.log(key + ": " + propertyInfo.facility[key]);
                                     if (propertyInfo.facility[key] === "1" && key != "propertyId") {
                                         return (
 
@@ -222,7 +241,6 @@ export default function PropertyPage() {
                         <div className="property-conditions-content">
                             {
                                 Object.keys(propertyInfo.condition).map((key) => {
-                                    console.log(key + ": " + propertyInfo.condition[key]);
                                     if (propertyInfo.condition[key] === "1" && key != "propertyId") {
                                         return (
                                             <div className="property-details-info-item">{t(key)}</div>
@@ -235,7 +253,43 @@ export default function PropertyPage() {
                         </div>
                     </div>
                     <hr />
+                    <div className='agency-information'>
+                    <h4 className='property-details-facilities-header'>{t("Agency Information")}</h4>
+                        <div className="agency-information-content">
+                            <div className="agency-title-name">{agency.aname}</div>
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Agency Code") + ": "}</p>
+                                <p className='agency-field-value'>{agency.id}</p>
+                            </div>
 
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Agency City") + ": "}</p>
+                                <p className='agency-field-value'>{agency.acity}</p>
+                            </div>
+
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Agency Phone") + ": "}</p>
+                                <p className='agency-field-value'>{agency.aphone}</p>
+                            </div>
+
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Manager Name") + ": "}</p>
+                                <p className='agency-field-value'>{agency.mname}</p>
+                            </div>
+
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Manager Family") + ": "}</p>
+                                <p className='agency-field-value'>{agency.mfamily}</p>
+                            </div>
+
+                            <div className="agency-field-row">
+                                <p className='agency-field-key'>{t("Manager Phone") + ": "}</p>
+                                <p className='agency-field-value'>{agency.mphone}</p>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

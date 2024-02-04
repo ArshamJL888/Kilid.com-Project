@@ -80,7 +80,7 @@ const numberSeparator = (balance) => {
 };
 
 const getStringArrayBasedOnBreaks = (description) => {
-  var stringArray = description.trim().split("\n");
+  var stringArray = description.trim().split("\n").join("").split("\\n");
   return stringArray;
 }
 
